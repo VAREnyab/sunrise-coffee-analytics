@@ -1,7 +1,7 @@
 [project]
-name = "dataanalytics-challenge"
+name = "sunrise-coffee-analytics"
 version = "0.1.0"
-description = "Add your description here"
+description = "Analysis of a 60-store UK coffee chain for the DataDNA Challenge, using SQL to answer the business questions and a 5-page Power BI dashboard to show the results."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

@@ -140,7 +140,7 @@ Good analysis states its limits. These shaped how the results were calculated an
 
 ```bash
 # 1. Clone and install dependencies
-git clone https://github.com/<your-username>/<repo-name>.git
+git clone https://github.com/VAREnyab/sunrise-coffee-analytics.git
 cd sunrise-coffee-analytics
 uv sync            # or: pip install pandas ipykernel
 

@@ -1,8 +1,6 @@
 # Initial data review — Sunrise Coffee Chain
 
 Completed 9 October 2026. All five source CSVs were profiled; the source files were preserved.
-Reproduce with `.venv\Scripts\python.exe scripts/initial_data_audit.py` from the project root.
-Generated evidence and enriched datasets are in `outputs/initial_audit/`.
 
 ## Inventory and coverage
 
