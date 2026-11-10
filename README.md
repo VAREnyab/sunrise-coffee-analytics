@@ -1,7 +1,7 @@
 # ☕ Sunrise Coffee Chain: Store Performance & Loyalty Analysis
 
 **DataDNA Dataset Challenge, October 2026**
-An end-to-end analysis of a 60-store UK coffee chain (2023–2024): data audit in Python, analysis in SQL, and a 5-page interactive Power BI dashboard.
+An end-to-end analysis of a 60-store UK coffee chain (2023–2024): data checks in Python and Power Query, analysis in SQL, and a 5-page interactive Power BI dashboard.
 
 ![Executive Summary](3_PowerBI/screenshots/01_executive_summary.png)
 
@@ -94,10 +94,9 @@ Full column definitions are in [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.
 
 ## 🔍 Approach
 
-1. **Data audit (Python):** [`scripts/initial_data_audit.py`](scripts/initial_data_audit.py) profiles every table and checks keys, joins, duplicates and calculated fields. Results are in [`outputs/initial_audit/`](outputs/initial_audit/) and summarised in [`docs/INITIAL_DATA_REVIEW.md`](docs/INITIAL_DATA_REVIEW.md).
+1. **Data checks (Python & Power Query):** [`2_Python/data_quality.ipynb`](2_Python/data_quality.ipynb) joins the fact tables to the dimension tables and explores data quality. Column types and quality were checked again in Power Query when loading into Power BI. Findings are summarised in [`docs/INITIAL_DATA_REVIEW.md`](docs/INITIAL_DATA_REVIEW.md).
 2. **Analysis (SQL):** the CSVs are loaded into SQLite ([`1_SQL/sql_connection.ipynb`](1_SQL/sql_connection.ipynb)), and each of the 14 guiding questions is answered with SQL in [`1_SQL/analysis.ipynb`](1_SQL/analysis.ipynb).
-3. **Exploration (Python):** [`2_Python/data_quality.ipynb`](2_Python/data_quality.ipynb) joins facts to dimensions and explores quality issues.
-4. **Dashboard (Power BI):**
+3. **Dashboard (Power BI):**
    - **Model:** a star schema with 5 one-to-many relationships and a marked date table.
    - **Calculations:** around 45 DAX measures, so ratios like margin % are calculated as *total profit ÷ total revenue* instead of averaging percentages.
    - **Storytelling:** insight-led titles, caveats in subtitles, and an Executive Summary page.
@@ -123,7 +122,7 @@ Good analysis states its limits. These shaped how the results were calculated an
 │   ├── sql_connection.ipynb      # loads CSVs into SQLite (creates analytics.db)
 │   └── analysis.ipynb            # SQL answers to the 14 guiding questions
 ├── 2_Python/
-│   └── data_quality.ipynb        # joins and data-quality exploration
+│   └── data_quality.ipynb        # joins and data-quality checks
 ├── 3_PowerBI/
 │   ├── dashboard.pbix            # Power BI report (5 pages)
 │   └── screenshots/              # PNG export of each page
@@ -131,9 +130,6 @@ Good analysis states its limits. These shaped how the results were calculated an
 ├── docs/
 │   ├── DATA_DICTIONARY.md
 │   └── INITIAL_DATA_REVIEW.md
-├── outputs/initial_audit/        # audit results (profiles, checks, baselines)
-├── scripts/
-│   └── initial_data_audit.py     # reproducible data audit
 ├── CHALLENGE_BRIEF.md            # original challenge brief
 └── pyproject.toml                # Python dependencies (uv)
 ```
@@ -147,13 +143,10 @@ Good analysis states its limits. These shaped how the results were calculated an
 ```bash
 # 1. Clone and install dependencies
 git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+cd sunrise-coffee-analytics
 uv sync            # or: pip install pandas ipykernel
 
-# 2. Run the data audit
-python scripts/initial_data_audit.py
-
-# 3. Build the SQLite database, then run the SQL analysis
+# 2. Build the SQLite database, then run the SQL analysis
 #    Open 1_SQL/sql_connection.ipynb and run all cells (creates 1_SQL/analytics.db)
 #    Then open 1_SQL/analysis.ipynb and run all cells
 ```
@@ -165,4 +158,3 @@ python scripts/initial_data_audit.py
 ## 🛠️ Tools
 
 **Python** (pandas, sqlite3) · **SQL** (SQLite) · **Power BI** (Power Query, DAX, data modelling) · **Jupyter** · **Git**
-
