@@ -3,7 +3,7 @@
 **DataDNA Dataset Challenge, October 2026**
 An end-to-end analysis of a 60-store UK coffee chain (2023–2024): data checks in Python and Power Query, analysis in SQL, and a 5-page interactive Power BI dashboard.
 
-![Executive Summary](3_PowerBI/screenshots/01_executive_summary.png)
+![Executive Summary](2_PowerBI/screenshots/01_executive_summary.png)
 
 ---
 
@@ -58,10 +58,10 @@ The Power BI report has 5 pages. Every chart title states the finding, and each 
 <details>
 <summary>📷 Click to see all dashboard pages</summary>
 
-![Store & Format Performance](3_PowerBI/screenshots/02_store_format_performance.png)
-![Loyalty Programme](3_PowerBI/screenshots/03_loyalty_programme.png)
-![Revenue Mix](3_PowerBI/screenshots/04_revenue_mix.png)
-![Seasonal & Temporal Patterns](3_PowerBI/screenshots/05_seasonal_patterns.png)
+![Store & Format Performance](2_PowerBI/screenshots/02_store_format_performance.png)
+![Loyalty Programme](2_PowerBI/screenshots/03_loyalty_programme.png)
+![Revenue Mix](2_PowerBI/screenshots/04_revenue_mix.png)
+![Seasonal & Temporal Patterns](2_PowerBI/screenshots/05_seasonal_patterns.png)
 
 </details>
 
@@ -94,7 +94,7 @@ Full column definitions are in [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.
 
 ## 🔍 Approach
 
-1. **Data checks (Python & Power Query):** [`2_Python/data_quality.ipynb`](2_Python/data_quality.ipynb) joins the fact tables to the dimension tables and explores data quality. Column types and quality were checked again in Power Query when loading into Power BI. Findings are summarised in [`docs/INITIAL_DATA_REVIEW.md`](docs/INITIAL_DATA_REVIEW.md).
+1. **Data checks (SQL & Power Query):** [`docs/INITIAL_DATA_REVIEW.md`](docs/INITIAL_DATA_REVIEW.md).
 2. **Analysis (SQL):** the CSVs are loaded into SQLite ([`1_SQL/sql_connection.ipynb`](1_SQL/sql_connection.ipynb)), and each of the 14 guiding questions is answered with SQL in [`1_SQL/analysis.ipynb`](1_SQL/analysis.ipynb).
 3. **Dashboard (Power BI):**
    - **Model:** a star schema with 5 one-to-many relationships and a marked date table.
@@ -121,9 +121,7 @@ Good analysis states its limits. These shaped how the results were calculated an
 ├── 1_SQL/
 │   ├── sql_connection.ipynb      # loads CSVs into SQLite (creates analytics.db)
 │   └── analysis.ipynb            # SQL answers to the 14 guiding questions
-├── 2_Python/
-│   └── data_quality.ipynb        # joins and data-quality checks
-├── 3_PowerBI/
+├── 2_PowerBI/
 │   ├── dashboard.pbix            # Power BI report (5 pages)
 │   └── screenshots/              # PNG export of each page
 ├── data/                         # source CSVs (5 tables)
@@ -151,7 +149,7 @@ uv sync            # or: pip install pandas ipykernel
 #    Then open 1_SQL/analysis.ipynb and run all cells
 ```
 
-**Dashboard:** open `3_PowerBI/dashboard.pbix` in Power BI Desktop. If it asks for the data location, point it to the `data/` folder through **Transform data → Data source settings → Change source**.
+**Dashboard:** open `2_PowerBI/dashboard.pbix` in Power BI Desktop. If it asks for the data location, point it to the `data/` folder through **Transform data → Data source settings → Change source**.
 
 ---
 
