@@ -1,0 +1,10 @@
+[project]
+name = "dataanalytics-challenge"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "pandas>=3.0.6",
+]
